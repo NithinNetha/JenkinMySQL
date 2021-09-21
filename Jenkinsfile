@@ -19,7 +19,7 @@ pipeline {
         stage('Build Docker image'){
             steps {
               
-                sh 'docker build -t  nithin6425/springDemo:${BUILD_NUMBER} .'
+                sh 'docker build -t  nithin6425/springdemo:${BUILD_NUMBER} .'
             }
         }
 
@@ -34,14 +34,14 @@ pipeline {
 
         stage('Docker Push'){
             steps {
-                sh 'docker push nithin6425/springDemo:${BUILD_NUMBER}'
+                sh 'docker push nithin6425/springdemo:${BUILD_NUMBER}'
             }
         }
         
         stage('Docker deploy'){
             steps {
                
-                sh 'docker run -itd -p  8081:8080 --link mysql-standalone:mysql nithin6425/springDemo:${BUILD_NUMBER}'
+                sh 'docker run -itd -p  8081:8080 --link mysql-standalone:mysql nithin6425/springdemo:${BUILD_NUMBER}'
             }
         }
 
