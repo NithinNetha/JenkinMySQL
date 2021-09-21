@@ -1,6 +1,6 @@
 FROM openjdk:8
 
-ADD target/springDemo.jar springDemo.jar
+ADD target/springdemo.jar springdemo.jar
 
 EXPOSE 8080
 
